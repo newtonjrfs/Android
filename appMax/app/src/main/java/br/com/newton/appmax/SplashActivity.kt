@@ -1,5 +1,6 @@
 package br.com.newton.appmax
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -17,7 +18,7 @@ class SplashActivity : AppCompatActivity() {
 
         val handle = Handler()
         handle.postDelayed(Runnable {
-
+            startActivity(Intent(this,HomeActivity::class.java))
         }, 2000)
 
     }
