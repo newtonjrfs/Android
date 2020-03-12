@@ -1,11 +1,10 @@
-package br.com.newton.appmax
+package br.com.newton.appmax.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.view.View
-import android.widget.Toast
+import br.com.newton.appmax.R
 import br.com.redcode.easyglide.library.load
 import kotlinx.android.synthetic.main.activity_splash.*
 
@@ -18,7 +17,7 @@ class SplashActivity : AppCompatActivity() {
 
         val handle = Handler()
         handle.postDelayed(Runnable {
-            startActivity(Intent(this,HomeActivity::class.java))
+            startActivity(Intent(this, HomeActivity::class.java))
         }, 2000)
 
     }

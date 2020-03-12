@@ -1,7 +1,8 @@
-package br.com.newton.appmax
+package br.com.newton.appmax.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import br.com.newton.appmax.R
 import br.com.redcode.easyglide.library.load
 import kotlinx.android.synthetic.main.activity_home.*
 
