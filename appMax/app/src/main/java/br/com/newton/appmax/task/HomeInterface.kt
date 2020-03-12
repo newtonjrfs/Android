@@ -5,8 +5,8 @@ import android.content.Context
 interface HomeInterface {
 
     interface PresenterHomeInterface {
-        fun getInternet(context: Context)
-        fun getVersion()
+        fun verifyInternet(context: Context)
+        fun verifyVersion()
 
     }
 

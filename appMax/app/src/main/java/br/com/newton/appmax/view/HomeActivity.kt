@@ -21,8 +21,8 @@ class HomeActivity : AppCompatActivity(), HomeInterface.ViewHomeInterface {
         imageViewResumo.load(R.drawable.ic_maxima_resumo_vendas)
         imageViewFerramentas.load(R.drawable.ic_maxima_ferramentas)
 
-        presenter.getInternet(this)
-        presenter.getVersion()
+        presenter.verifyInternet(this)
+        presenter.verifyVersion()
 
         constraintLayoutClientes.setOnClickListener {
             //startActivity(Intent(this,))

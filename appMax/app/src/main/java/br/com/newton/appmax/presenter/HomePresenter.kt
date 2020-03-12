@@ -10,12 +10,12 @@ import br.com.newton.appmax.task.HomeInterface
 class HomePresenter(val view: HomeInterface.ViewHomeInterface) :
     HomeInterface.PresenterHomeInterface {
 
-    override fun getVersion() {
+    override fun verifyVersion() {
         val version = BuildConfig.VERSION_NAME
         view.showVersion(version)
     }
 
-    override fun getInternet(context: Context) {
+    override fun verifyInternet(context: Context) {
         val connectivityManager =
             context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 
