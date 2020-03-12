@@ -17,4 +17,5 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="nada_encontrado">Nada encontrado...</string>
     <string name="texto_sem_alvaras">Não há alvaras para exibir,\nverifique com o responsável pelo ERP</string>
+    <string name="dados_do_cliente">Dados do cliente</string>
 </resources>

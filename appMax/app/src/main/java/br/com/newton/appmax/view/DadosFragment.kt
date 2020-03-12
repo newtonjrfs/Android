@@ -17,6 +17,7 @@ class DadosFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        activity!!.setTitle(R.string.dados_do_cliente)
         return inflater.inflate(R.layout.fragment_dados, container, false)
     }
 

@@ -17,6 +17,7 @@ class HistoricoPedidosFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        activity!!.setTitle(R.string.historico_de_pedidos)
         return inflater.inflate(R.layout.fragment_historico_pedidos, container, false)
     }
 
