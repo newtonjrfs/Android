@@ -21,4 +21,5 @@ class HistoricoPedidosFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_historico_pedidos, container, false)
     }
 
+
 }

@@ -18,4 +18,10 @@
     <string name="nada_encontrado">Nada encontrado...</string>
     <string name="texto_sem_alvaras">Não há alvaras para exibir,\nverifique com o responsável pelo ERP</string>
     <string name="dados_do_cliente">Dados do cliente</string>
+    <string name="cpf">cpf:</string>
+    <string name="cnpj">cnpj:</string>
+    <string name="ramo_de_atividade">Ramo de atividade:</string>
+    <string name="enderecos">Endereços:</string>
+    <string name="verificar_status_do_cliente">Verificar status do cliente</string>
+    <string name="contatos">Contatos</string>
 </resources>
