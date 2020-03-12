@@ -7,4 +7,6 @@
     <color name="gray">#4E4E4E</color>
     <color name="azul_light">#95B6CF</color>
     <color name="verde_musgo">#638735</color>
+    <color name="gray_text">#606060</color>
+    <color name="text_gray_fixed">#95989a</color>
 </resources>
