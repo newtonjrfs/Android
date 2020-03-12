@@ -1,12 +1,16 @@
 package br.com.newton.appmax.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import br.com.newton.appmax.R
+import br.com.newton.appmax.presenter.HomePresenter
+import br.com.newton.appmax.task.HomeInterface
 import br.com.redcode.easyglide.library.load
 import kotlinx.android.synthetic.main.activity_home.*
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity(), HomeInterface.ViewHomeInterface {
+
+    private val presenter by lazy { HomePresenter(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,5 +21,24 @@ class HomeActivity : AppCompatActivity() {
         imageViewResumo.load(R.drawable.ic_maxima_resumo_vendas)
         imageViewFerramentas.load(R.drawable.ic_maxima_ferramentas)
 
+        presenter.getInternet(this)
+        presenter.getVersion()
+
+        constraintLayoutClientes.setOnClickListener {
+            //startActivity(Intent(this,))
+        }
+
+    }
+
+    override fun showInternet(internet: Boolean) {
+        if (internet) {
+            imageViewInternet.load(R.drawable.ic_maxima_nuvem_conectado)
+        } else {
+            imageViewInternet.load(R.drawable.ic_maxima_nuvem_desconectado)
+        }
+    }
+
+    override fun showVersion(version: String) {
+        textViewVersao.text = getString(R.string.version_home, version)
     }
 }

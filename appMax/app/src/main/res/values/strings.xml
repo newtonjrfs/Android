@@ -4,4 +4,5 @@
     <string name="pedidos">Pedidos</string>
     <string name="resumo_de_vendas">Resumo de vendas</string>
     <string name="ferramentas">Ferramentas</string>
+    <string name="version_home">v.%1$s</string>
 </resources>
