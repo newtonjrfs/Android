@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">AppMax</string>
+    <string name="clientes">Clientes</string>
+    <string name="pedidos">Pedidos</string>
+    <string name="resumo_de_vendas">Resumo de vendas</string>
+    <string name="ferramentas">Ferramentas</string>
 </resources>
