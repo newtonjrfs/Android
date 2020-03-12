@@ -1,9 +1,12 @@
-package br.com.newton.appmax.view
+package br.com.newton.appmax.view.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import br.com.newton.appmax.R
+import br.com.newton.appmax.view.fragment.AlvarasFragment
+import br.com.newton.appmax.view.fragment.DadosFragment
+import br.com.newton.appmax.view.fragment.HistoricoPedidosFragment
 import kotlinx.android.synthetic.main.activity_cliente.*
 
 
@@ -16,7 +19,10 @@ class ClienteActivity : AppCompatActivity() {
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.fragmentCliente, DadosFragment()).commit()
+                .replace(
+                    R.id.fragmentCliente,
+                    DadosFragment()
+                ).commit()
         }
 
         bottomNavigationViewCliente.setOnNavigationItemSelectedListener {

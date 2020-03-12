@@ -16,13 +16,13 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning,LockedOrientationActivity">
         <activity
-            android:name=".view.ClienteActivity"
+            android:name=".view.activity.ClienteActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.HomeActivity"
+            android:name=".view.activity.HomeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.SplashActivity"
+            android:name=".view.activity.SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/FullStyle">
             <intent-filter>

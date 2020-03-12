@@ -12,9 +12,6 @@
     <string name="dados">Dados</string>
     <string name="historico_de_pedidos">Hist. Pedidos</string>
     <string name="alvaras">Alvarás</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="nada_encontrado">Nada encontrado...</string>
     <string name="texto_sem_alvaras">Não há alvaras para exibir,\nverifique com o responsável pelo ERP</string>
     <string name="dados_do_cliente">Dados do cliente</string>
@@ -24,4 +21,12 @@
     <string name="enderecos">Endereços:</string>
     <string name="verificar_status_do_cliente">Verificar status do cliente</string>
     <string name="contatos">Contatos</string>
+    <string name="telefone">Telefone:</string>
+    <string name="celular">Celular:</string>
+    <string name="conjuge">Cônjuge:</string>
+    <string name="tipo">Tipo:</string>
+    <string name="email">E-mail:</string>
+    <string name="data_de_nascimento">Data Nasc.:</string>
+    <string name="data_de_nascimento_conjuge">Data Nasc. Cônjuge:</string>
+    <string name="time">Time:</string>
 </resources>

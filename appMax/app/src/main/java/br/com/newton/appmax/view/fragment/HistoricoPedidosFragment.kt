@@ -1,4 +1,4 @@
-package br.com.newton.appmax.view
+package br.com.newton.appmax.view.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
