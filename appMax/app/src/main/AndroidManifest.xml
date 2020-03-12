@@ -16,6 +16,9 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning,LockedOrientationActivity">
         <activity
+            android:name=".view.ClienteActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".view.HomeActivity"
             android:screenOrientation="portrait" />
         <activity

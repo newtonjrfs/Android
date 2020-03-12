@@ -1,5 +1,6 @@
 package br.com.newton.appmax.view
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import br.com.newton.appmax.R
@@ -25,7 +26,7 @@ class HomeActivity : AppCompatActivity(), HomeInterface.ViewHomeInterface {
         presenter.verifyVersion()
 
         constraintLayoutClientes.setOnClickListener {
-            //startActivity(Intent(this,))
+            startActivity(Intent(this, ClienteActivity::class.java))
         }
 
     }
