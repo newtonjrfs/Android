@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import br.com.newton.appmax.R
 import br.com.newton.appmax.model.Pedidos
 import br.com.redcode.easyglide.library.load
+import br.com.redcode.easyglide.library.loadInView
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -55,7 +56,7 @@ class PedidosAdapter(
                 "Em processamento" -> {
                     holder.status.text = pedidos.status
                     holder.sigla.text = ""
-                    holder.sigla.setBackgroundColor(R.drawable.ic_maxima_em_processamento)
+                    holder.sigla.loadInView(R.drawable.ic_maxima_em_processamento)
                     holder.imgBackStatus.setColorFilter(
                         ContextCompat.getColor(
                             holder.itemView.context,
@@ -201,7 +202,7 @@ class PedidosAdapter(
                     holder.sigla.setBackgroundColor(
                         ContextCompat.getColor(
                             holder.itemView.context,
-                            R.color.colorAccent
+                            R.color.transparente
                         )
                     )
                     holder.sigla.setTextColor(

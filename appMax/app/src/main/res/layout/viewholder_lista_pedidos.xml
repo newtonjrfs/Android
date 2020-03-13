@@ -6,8 +6,8 @@
 
     <ImageView
         android:id="@+id/imageViewBackStatus"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
@@ -32,9 +32,10 @@
         android:id="@+id/textView23"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
+        android:layout_marginStart="8dp"
         android:fontFamily="@font/santral_regular"
         android:text="@string/numero_pedido"
+        android:textColor="@color/text_gray_fixed"
         android:textSize="10sp"
         app:layout_constraintBottom_toTopOf="@+id/textView24"
         app:layout_constraintStart_toEndOf="@+id/imageViewBackStatus"
@@ -44,9 +45,10 @@
         android:id="@+id/textView24"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
+        android:layout_marginStart="8dp"
         android:fontFamily="@font/santral_regular"
         android:text="@string/cliente"
+        android:textColor="@color/text_gray_fixed"
         android:textSize="10sp"
         app:layout_constraintBottom_toTopOf="@+id/textViewStatus"
         app:layout_constraintStart_toEndOf="@+id/imageViewBackStatus"
@@ -56,9 +58,10 @@
         android:id="@+id/textViewStatus"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
+        android:layout_marginStart="8dp"
         android:fontFamily="@font/santral_regular"
         android:text="Em processamento"
+        android:textColor="@color/text_gray_fixed"
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/constraintLayoutCritica"
@@ -72,6 +75,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/santral_regular"
         android:text="5.421.800.637/5.421.800.637"
+        android:textColor="@android:color/black"
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView23"
         app:layout_constraintStart_toEndOf="@+id/textView23"
@@ -83,6 +87,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/santral_regular"
         android:text="848.246-1A F DA SILVA TOCUMA"
+        android:textColor="@android:color/black"
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView24"
         app:layout_constraintStart_toEndOf="@+id/textView24"
@@ -95,6 +100,7 @@
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/santral_regular"
         android:text="TextView"
+        android:textColor="@color/text_gray_fixed"
         android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textViewNumeroPedido" />
@@ -106,8 +112,7 @@
         android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toBottomOf="@+id/textViewCliente"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textViewCliente"
-        app:srcCompat="@drawable/ic_maxima_legenda_corte" />
+        app:layout_constraintTop_toTopOf="@+id/textViewCliente" />
 
     <TextView
         android:id="@+id/textViewValor"
@@ -118,6 +123,7 @@
         android:fontFamily="@font/santral_regular"
         android:gravity="right"
         android:text="R$ 617,40"
+        android:textColor="@android:color/black"
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="@+id/textViewStatus"
         app:layout_constraintEnd_toEndOf="parent"
@@ -161,4 +167,15 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_maxima_critica_alerta" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageViewBackStatus"
+        app:srcCompat="@color/gray" />
 </androidx.constraintlayout.widget.ConstraintLayout>
