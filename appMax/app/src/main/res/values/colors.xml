@@ -11,4 +11,17 @@
     <color name="text_gray_fixed">#95989a</color>
     <color name="gray_3e3e3e">#3e3e3e</color>
     <color name="gray_373737">#373737</color>
+    <color name="transparente">#00ffffff</color>
+
+    //cores da legenda
+    <color name="gray_em_processamento">#949899</color>
+    <color name="laranja_recusado">#FF9900</color>
+    <color name="gray_pendente">#747474</color>
+    <color name="blue_bloqueado">#3457AA</color>
+    <color name="blue_liberado">#176095</color>
+    <color name="green_montado">#7EAA33</color>
+    <color name="green_faturado">#64863B</color>
+    <color name="red_cancelado">#E30512</color>
+    <color name="gray_orcamento">#323232</color>
+
 </resources>

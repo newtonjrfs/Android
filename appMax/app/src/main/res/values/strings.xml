@@ -29,4 +29,7 @@
     <string name="data_de_nascimento">Data Nasc.:</string>
     <string name="data_de_nascimento_conjuge">Data Nasc. Cônjuge:</string>
     <string name="time">Time:</string>
+    <string name="numero_pedido">NºPed.RCA/ERP:</string>
+    <string name="cliente">Cliente:</string>
+    <string name="critica">Crítica:</string>
 </resources>
