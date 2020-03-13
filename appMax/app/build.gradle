@@ -57,5 +57,9 @@ dependencies {
     //carregamento de imagens
     implementation 'com.github.pedrofsn:easyglide:1.1.0'
 
+    //retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.6.2'
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+
 
 }
