@@ -1,5 +1,6 @@
 package br.com.newton.appmax.presenter
 
+import br.com.newton.appmax.dao.Repository
 import br.com.newton.appmax.model.view.Contatos
 import br.com.newton.appmax.network.Interector
 import br.com.newton.appmax.task.DadosInterface
@@ -11,6 +12,7 @@ class DadosPresenter(val view: DadosInterface.ViewDadosInterface) :
     DadosInterface.PresenterDadosInterface {
 
     val interector by lazy { Interector() }
+    val repository by lazy { Repository() }
 
     override fun searchCliente() {
         interector.searchCliente { result ->

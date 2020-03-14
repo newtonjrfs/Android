@@ -1,5 +1,6 @@
 package br.com.newton.appmax.presenter
 
+import br.com.newton.appmax.dao.Repository
 import br.com.newton.appmax.model.view.Pedidos
 import br.com.newton.appmax.network.Interector
 import br.com.newton.appmax.task.PedidosInterface
@@ -8,6 +9,7 @@ class PedidosPresenter(val view: PedidosInterface.ViewPedidosInterface) :
     PedidosInterface.PresenterPedidosInterface {
 
     val interector by lazy { Interector() }
+    val repository by lazy { Repository() }
 
     override fun searchPedidos() {
         interector.searchPedidos { result ->
