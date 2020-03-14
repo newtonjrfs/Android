@@ -2,9 +2,11 @@ package br.com.newton.appmax.view.fragment
 
 import android.graphics.Color
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -74,15 +76,18 @@ class DadosFragment : Fragment(), DadosInterface.ViewDadosInterface {
         buttonVerifyStatus.setOnClickListener {
             val date = SimpleDateFormat("dd/MM/yyyy hh:mm", Locale.ROOT).format(Date())
             Snackbar.make(
-                    activity!!.findViewById(R.id.fragmentCliente),
+                    activity!!.findViewById(R.id.coordinator),
                     "$date - $status",
                     8000
                 )
-                /*tentei subir o snack mas nao deu certo
                 .apply {
-                    view.layoutParams = (view.layoutParams as FrameLayout.LayoutParams)
-                        .apply {setMargins(0, 0, 0, resources.getDimension(R.dimen.bottom_height).toInt())}
-                }*/
+                    view.layoutParams = (view.layoutParams as CoordinatorLayout.LayoutParams)
+                        .apply {
+                            this.anchorId = R.id.bottomNavigationViewCliente
+                            this.anchorGravity = Gravity.TOP
+                            this.gravity = Gravity.TOP
+                        }
+                }
                 .setAction("FECHAR") {}
                 .setActionTextColor(Color.parseColor("#638735"))
                 .show()
