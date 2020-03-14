@@ -12,6 +12,7 @@ import br.com.newton.appmax.model.view.Pedidos
 import br.com.newton.appmax.presenter.PedidosPresenter
 import br.com.newton.appmax.task.PedidosInterface
 import br.com.newton.appmax.view.adapters.PedidosAdapter
+import kotlinx.android.synthetic.main.fragment_pedidos.*
 
 /**
  * A simple [Fragment] subclass.
@@ -51,5 +52,7 @@ class PedidosFragment : Fragment(), PedidosInterface.ViewPedidosInterface {
             val adapter = PedidosAdapter(list)
             recyclerView.adapter = adapter
         }
+        progressBarPedidos.visibility = View.GONE
+
     }
 }

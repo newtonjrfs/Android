@@ -63,9 +63,10 @@ class DadosFragment : Fragment(), DadosInterface.ViewDadosInterface {
                     false
 
                 )
-            val adapter = DadosAdapter(list)
+            val adapter = DadosAdapter(list, getString(R.string.nao_informado))
             recyclerView.adapter = adapter
         }
+        progressBarDados.visibility = View.GONE
 
     }
 
