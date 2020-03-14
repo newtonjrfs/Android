@@ -52,7 +52,7 @@ class DadosFragment : Fragment(), DadosInterface.ViewDadosInterface {
 
     }
 
-    override fun showContatos(list: java.util.ArrayList<Contatos>) {
+    override fun showContatos(list: ArrayList<Contatos>) {
         activity?.let { activityFragment ->
             val recyclerView =
                 activityFragment.findViewById<RecyclerView>(R.id.recyclerViewListaContatos)
@@ -66,6 +66,7 @@ class DadosFragment : Fragment(), DadosInterface.ViewDadosInterface {
             val adapter = DadosAdapter(list)
             recyclerView.adapter = adapter
         }
+
     }
 
     override fun showStatus(status: String?) {

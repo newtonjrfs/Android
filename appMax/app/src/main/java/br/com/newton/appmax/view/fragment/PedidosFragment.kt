@@ -17,7 +17,7 @@ import kotlin.collections.ArrayList
 /**
  * A simple [Fragment] subclass.
  */
-class HistoricoPedidosFragment : Fragment() {
+class PedidosFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,7 +25,7 @@ class HistoricoPedidosFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         activity!!.setTitle(R.string.historico_de_pedidos)
-        return inflater.inflate(R.layout.fragment_historico_pedidos, container, false)
+        return inflater.inflate(R.layout.fragment_pedidos, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
