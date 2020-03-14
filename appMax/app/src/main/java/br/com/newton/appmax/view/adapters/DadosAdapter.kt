@@ -7,9 +7,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import br.com.newton.appmax.R
 import br.com.newton.appmax.model.view.Contatos
-
 class DadosAdapter(
-    private val list: List<Contatos>
+    private val list: List<Contatos>,
+    private val naoInformado: String
 ) :
     RecyclerView.Adapter<DadosAdapter.ViewHolder>() {
     override fun onCreateViewHolder(
@@ -22,20 +22,19 @@ class DadosAdapter(
         return ViewHolder(v)
     }
 
-    override fun getItemCount(): Int {
-        return list.size
-    }
+    override fun getItemCount() = list.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val contatos = list[position]
+        list[position].apply {
+            holder.celular.text = celular ?: naoInformado
+            holder.conjuge.text = conjuge ?: naoInformado
+            holder.tipo.text = tipo ?: naoInformado
+            holder.email.text = email ?: naoInformado
+            holder.dataNasc.text = dataNascimento ?: naoInformado
+            holder.dataNascConj.text = dataNascimentoConjuge ?: naoInformado
+            holder.time.text = time ?: naoInformado
+        }
 
-        holder.celular.text = contatos.celular
-        holder.conjuge.text = contatos.conjuge
-        holder.tipo.text = contatos.tipo
-        holder.email.text = contatos.email
-        holder.dataNasc.text = contatos.dataNascimento
-        holder.dataNascConj.text = contatos.dataNascimentoConjuge
-        holder.time.text = contatos.time
 
 
     }
