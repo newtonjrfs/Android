@@ -5,7 +5,7 @@ data class Pedido(
     val codigoCliente: String?, // 965
     val critica: String?, // SUCESSO
     val `data`: String?, // 2018-09-12T08:33:18-0300
-    val legendas: List<String?>?,
+    val legendas: List<String>?,
     val numero_ped_Rca: Int?, // 542189
     val numero_ped_erp: String?, // 6421800996
     val status: String?, // Processado

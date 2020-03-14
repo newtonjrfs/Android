@@ -25,8 +25,8 @@ class DadosPresenter(val view: DadosInterface.ViewDadosInterface) :
 
                     val contato = it.contatos
 
-                    contato.let { contatos ->
-                        for (i in contatos!!.indices) {
+                    contato?.let { contatos ->
+                        for (i in contatos.indices) {
 
                             val nomeContato =
                                 if (contatos[i]!!.nome != null && contatos[i]!!.nome!!.isNotEmpty()) {

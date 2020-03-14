@@ -39,7 +39,14 @@ class PedidosAdapter(
         //controlando status e tipo
         if (pedidos.tipo == "ORCAMENTO") {
             holder.sigla.text = "O"
+            holder.status.text = pedidos.status
             holder.sigla.setBackgroundColor(
+                ContextCompat.getColor(
+                    holder.itemView.context,
+                    R.color.transparente
+                )
+            )
+            holder.sigla.setTextColor(
                 ContextCompat.getColor(
                     holder.itemView.context,
                     R.color.colorAccent
@@ -52,8 +59,19 @@ class PedidosAdapter(
                 )
             )
         } else {
-            when (pedidos.status) {
+            when (pedidos.status!!) {
                 "Em processamento" -> {
+                    holder.status.text = pedidos.status
+                    holder.sigla.text = ""
+                    holder.sigla.loadInView(R.drawable.ic_maxima_em_processamento)
+                    holder.imgBackStatus.setColorFilter(
+                        ContextCompat.getColor(
+                            holder.itemView.context,
+                            R.color.gray_em_processamento
+                        )
+                    )
+                }
+                "Em Processamento" -> {
                     holder.status.text = pedidos.status
                     holder.sigla.text = ""
                     holder.sigla.loadInView(R.drawable.ic_maxima_em_processamento)
@@ -87,6 +105,28 @@ class PedidosAdapter(
                     )
                 }
                 "Pendente" -> {
+                    holder.status.text = pedidos.status
+                    holder.sigla.text = "P"
+                    holder.sigla.setBackgroundColor(
+                        ContextCompat.getColor(
+                            holder.itemView.context,
+                            R.color.transparente
+                        )
+                    )
+                    holder.sigla.setTextColor(
+                        ContextCompat.getColor(
+                            holder.itemView.context,
+                            R.color.colorAccent
+                        )
+                    )
+                    holder.imgBackStatus.setColorFilter(
+                        ContextCompat.getColor(
+                            holder.itemView.context,
+                            R.color.gray_pendente
+                        )
+                    )
+                }
+                "Processado" -> {
                     holder.status.text = pedidos.status
                     holder.sigla.text = "P"
                     holder.sigla.setBackgroundColor(
@@ -228,13 +268,14 @@ class PedidosAdapter(
         holder.cliente.text = pedidos.cliente
 
         //controlando horario
-        val horarioPedido = SimpleDateFormat("dd-MM-yyyy-hh-mm-ss").parse(pedidos.horarios)
-        val dataAtual = SimpleDateFormat("dd/MM").format(Date())
-        val dataPedido = SimpleDateFormat("dd/MM").format(horarioPedido)
+        val horarioPedido =
+            SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ssz", Locale.ROOT).parse(pedidos.horarios)
+        val dataAtual = SimpleDateFormat("dd/MM", Locale.ROOT).format(Date())
+        val dataPedido = SimpleDateFormat("dd/MM", Locale.ROOT).format(horarioPedido)
         if (dataAtual == dataPedido) {
-            holder.horario.text = SimpleDateFormat("hh:mm").format(horarioPedido)
+            holder.horario.text = SimpleDateFormat("hh:mm", Locale.ROOT).format(horarioPedido)
         } else {
-            holder.horario.text = SimpleDateFormat("dd/:MM").format(horarioPedido)
+            holder.horario.text = SimpleDateFormat("dd/MM", Locale.ROOT).format(horarioPedido)
         }
 
         //controlando o valor
@@ -253,13 +294,15 @@ class PedidosAdapter(
 
         //controlando a legenda
         pedidos.legendas?.let {
-            when (pedidos.legendas[0]) {
-                "PEDIDO_SOFREU_CORTE" -> holder.imgLegenda.load(R.drawable.ic_maxima_legenda_corte)
-                "PEDIDO_FEITO_TELEMARKETING" -> holder.imgLegenda.load(R.drawable.ic_maxima_legenda_telemarketing)
-                "PEDIDO_CANCELADO_ERP" -> holder.imgLegenda.load(R.drawable.ic_maxima_legenda_cancelamento)
-                "PEDIDO_DEVOLVIDO" -> holder.imgLegenda.load(R.drawable.ic_maxima_legenda_devolucao)
-                "PEDIDO_EM_FALTA" -> holder.imgLegenda.load(R.drawable.ic_maxima_legenda_falta)
-                else -> holder.imgLegenda.load(R.color.colorAccent)
+            if (it.isNotEmpty()) {
+                when (it[0]) {
+                    "PEDIDO_SOFREU_CORTE" -> holder.imgLegenda.load(R.drawable.ic_maxima_legenda_corte)
+                    "PEDIDO_FEITO_TELEMARKETING" -> holder.imgLegenda.load(R.drawable.ic_maxima_legenda_telemarketing)
+                    "PEDIDO_CANCELADO_ERP" -> holder.imgLegenda.load(R.drawable.ic_maxima_legenda_cancelamento)
+                    "PEDIDO_DEVOLVIDO" -> holder.imgLegenda.load(R.drawable.ic_maxima_legenda_devolucao)
+                    "PEDIDO_EM_FALTA" -> holder.imgLegenda.load(R.drawable.ic_maxima_legenda_falta)
+                    else -> holder.imgLegenda.load(R.color.colorAccent)
+                }
             }
         }
     }
