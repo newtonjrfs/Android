@@ -1,6 +1,6 @@
 package br.com.newton.appmax.network
 
-import br.com.newton.appmax.model.ResponseCliente
+import br.com.newton.appmax.model.request.ResponseCliente
 import retrofit2.Call
 import retrofit2.http.GET
 

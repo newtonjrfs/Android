@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.newton.appmax.R
-import br.com.newton.appmax.model.Pedidos
+import br.com.newton.appmax.model.view.Pedidos
 import br.com.newton.appmax.view.adapters.PedidosAdapter
 import java.text.SimpleDateFormat
 import java.util.*

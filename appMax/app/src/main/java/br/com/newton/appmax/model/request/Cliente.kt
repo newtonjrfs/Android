@@ -1,4 +1,4 @@
-package br.com.newton.appmax.model
+package br.com.newton.appmax.model.request
 
 data class Cliente(
     val cnpj: String?, // 10.766.206/002-61

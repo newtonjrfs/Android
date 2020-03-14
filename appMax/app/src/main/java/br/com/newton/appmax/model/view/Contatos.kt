@@ -1,4 +1,4 @@
-package br.com.newton.appmax.model
+package br.com.newton.appmax.model.view
 
 class Contatos(
     val nome: String?,

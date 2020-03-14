@@ -2,6 +2,7 @@
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nestesScollDados"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -67,7 +68,7 @@
                 tools:text="40.795 - A E D REMEDIOS E PERFUMARIA" />
 
             <TextView
-                android:id="@+id/textView9"
+                android:id="@+id/textViewNomeFantasia"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -92,10 +93,10 @@
                 android:textColor="@color/text_gray_fixed"
                 android:textSize="8sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView9" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewNomeFantasia" />
 
             <TextView
-                android:id="@+id/textView11"
+                android:id="@+id/textViewCpf"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
@@ -123,7 +124,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
             <TextView
-                android:id="@+id/textView13"
+                android:id="@+id/textViewCnpj"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
@@ -150,7 +151,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
             <TextView
-                android:id="@+id/textView15"
+                android:id="@+id/textViewRamo"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
@@ -177,7 +178,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
             <TextView
-                android:id="@+id/textView17"
+                android:id="@+id/textViewEndereco"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
@@ -195,7 +196,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/buttonVerifyStatus"
             style="@style/BotaoVerde"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"

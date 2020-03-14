@@ -9,7 +9,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import br.com.newton.appmax.R
-import br.com.newton.appmax.model.Pedidos
+import br.com.newton.appmax.model.view.Pedidos
 import br.com.redcode.easyglide.library.load
 import br.com.redcode.easyglide.library.loadInView
 import java.text.SimpleDateFormat

@@ -1,6 +1,6 @@
 package br.com.newton.appmax.network
 
-import br.com.newton.appmax.model.ResponsePedidos
+import br.com.newton.appmax.model.request.ResponsePedidos
 import retrofit2.Call
 import retrofit2.http.GET
 

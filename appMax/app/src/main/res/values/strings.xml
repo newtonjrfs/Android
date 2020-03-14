@@ -32,4 +32,5 @@
     <string name="numero_pedido">NºPed.RCA/ERP:</string>
     <string name="cliente">Cliente:</string>
     <string name="critica">Crítica:</string>
+    <string name="nao_informado">Não informado</string>
 </resources>

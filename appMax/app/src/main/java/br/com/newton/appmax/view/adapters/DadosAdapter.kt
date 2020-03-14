@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import br.com.newton.appmax.R
-import br.com.newton.appmax.model.Contatos
+import br.com.newton.appmax.model.view.Contatos
 
 class DadosAdapter(
     private val list: List<Contatos>
@@ -29,8 +29,6 @@ class DadosAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val contatos = list[position]
 
-        holder.nome.text = contatos.nome
-        holder.telefone.text = contatos.telefone
         holder.celular.text = contatos.celular
         holder.conjuge.text = contatos.conjuge
         holder.tipo.text = contatos.tipo

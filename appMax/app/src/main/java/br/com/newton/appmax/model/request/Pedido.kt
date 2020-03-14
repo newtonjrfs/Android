@@ -1,4 +1,4 @@
-package br.com.newton.appmax.model
+package br.com.newton.appmax.model.request
 
 data class Pedido(
     val NOMECLIENTE: String?, // Supermecado Giro Mais
