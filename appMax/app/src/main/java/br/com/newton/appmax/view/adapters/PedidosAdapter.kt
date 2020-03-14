@@ -19,6 +19,31 @@ class PedidosAdapter(
     private val list: List<Pedidos>
 ) :
     RecyclerView.Adapter<PedidosAdapter.ViewHolder>() {
+
+    private val ORCAMENTO = "orcamento"
+    private val EM_PROCESSAMENTO = "em processamento"
+    private val RECUSADO = "recusado"
+    private val PENDENTE = "pendente"
+    private val PROCESSADO = "processado"
+    private val BLOQUEADO = "bloqueado"
+    private val LIBERADO = "liberado"
+    private val MONTADO = "montado"
+    private val FATURADO = "faturado"
+    private val CANCELADO = "cancelado"
+
+    private val SUCESSO = "SUCESSO"
+    private val FALHA_PARCIAL = "FALHA_PARCIAL"
+    private val AGUARDANDO = "AGUARDANDO"
+
+    private val PEDIDO_SOFREU_CORTE = "PEDIDO_SOFREU_CORTE"
+    private val PEDIDO_FEITO_TELEMARKETING = "PEDIDO_FEITO_TELEMARKETING"
+    private val PEDIDO_CANCELADO_ERP = "PEDIDO_CANCELADO_ERP"
+    private val PEDIDO_DEVOLVIDO = "PEDIDO_DEVOLVIDO"
+    private val PEDIDO_EM_FALTA = "PEDIDO_EM_FALTA"
+
+
+
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -37,7 +62,7 @@ class PedidosAdapter(
         val pedidos = list[position]
 
         //controlando status e tipo
-        if (pedidos.tipo == "ORCAMENTO") {
+        if (ORCAMENTO == pedidos.tipo) {
             holder.sigla.text = "O"
             holder.status.text = pedidos.status
             holder.sigla.setBackgroundColor(
@@ -59,8 +84,8 @@ class PedidosAdapter(
                 )
             )
         } else {
-            when (pedidos.status!!) {
-                "Em processamento" -> {
+            when (pedidos.status!!.toLowerCase()) {
+                EM_PROCESSAMENTO -> {
                     holder.status.text = pedidos.status
                     holder.sigla.text = ""
                     holder.sigla.loadInView(R.drawable.ic_maxima_em_processamento)
@@ -71,18 +96,7 @@ class PedidosAdapter(
                         )
                     )
                 }
-                "Em Processamento" -> {
-                    holder.status.text = pedidos.status
-                    holder.sigla.text = ""
-                    holder.sigla.loadInView(R.drawable.ic_maxima_em_processamento)
-                    holder.imgBackStatus.setColorFilter(
-                        ContextCompat.getColor(
-                            holder.itemView.context,
-                            R.color.gray_em_processamento
-                        )
-                    )
-                }
-                "Recusado" -> {
+                RECUSADO -> {
                     holder.status.text = pedidos.status
                     holder.sigla.text = "!"
                     holder.sigla.setBackgroundColor(
@@ -104,7 +118,7 @@ class PedidosAdapter(
                         )
                     )
                 }
-                "Pendente" -> {
+                PENDENTE -> {
                     holder.status.text = pedidos.status
                     holder.sigla.text = "P"
                     holder.sigla.setBackgroundColor(
@@ -126,7 +140,7 @@ class PedidosAdapter(
                         )
                     )
                 }
-                "Processado" -> {
+                PROCESSADO -> {
                     holder.status.text = pedidos.status
                     holder.sigla.text = "P"
                     holder.sigla.setBackgroundColor(
@@ -148,7 +162,7 @@ class PedidosAdapter(
                         )
                     )
                 }
-                "Bloqueado" -> {
+                BLOQUEADO -> {
                     holder.status.text = pedidos.status
                     holder.sigla.text = "B"
                     holder.sigla.setBackgroundColor(
@@ -170,7 +184,7 @@ class PedidosAdapter(
                         )
                     )
                 }
-                "Liberado" -> {
+                LIBERADO -> {
                     holder.status.text = pedidos.status
                     holder.sigla.text = "L"
                     holder.sigla.setBackgroundColor(
@@ -192,7 +206,7 @@ class PedidosAdapter(
                         )
                     )
                 }
-                "Montado" -> {
+                MONTADO -> {
                     holder.status.text = pedidos.status
                     holder.sigla.text = "M"
                     holder.sigla.setBackgroundColor(
@@ -214,7 +228,7 @@ class PedidosAdapter(
                         )
                     )
                 }
-                "Faturado" -> {
+                FATURADO -> {
                     holder.status.text = pedidos.status
                     holder.sigla.text = "F"
                     holder.sigla.setBackgroundColor(
@@ -236,7 +250,7 @@ class PedidosAdapter(
                         )
                     )
                 }
-                "Cancelado" -> {
+                CANCELADO -> {
                     holder.status.text = pedidos.status
                     holder.sigla.text = "C"
                     holder.sigla.setBackgroundColor(
@@ -268,15 +282,18 @@ class PedidosAdapter(
         holder.cliente.text = pedidos.cliente
 
         //controlando horario
-        val horarioPedido =
-            SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ssz", Locale.ROOT).parse(pedidos.horarios)
-        val dataAtual = SimpleDateFormat("dd/MM", Locale.ROOT).format(Date())
-        val dataPedido = SimpleDateFormat("dd/MM", Locale.ROOT).format(horarioPedido)
-        if (dataAtual == dataPedido) {
-            holder.horario.text = SimpleDateFormat("hh:mm", Locale.ROOT).format(horarioPedido)
-        } else {
-            holder.horario.text = SimpleDateFormat("dd/MM", Locale.ROOT).format(horarioPedido)
+        pedidos.horarios?.let {
+            val horarioPedido =
+                SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ssz", Locale.ROOT).parse(it)
+            val dataAtual = SimpleDateFormat("dd/MM", Locale.ROOT).format(Date())
+            val dataPedido = SimpleDateFormat("dd/MM", Locale.ROOT).format(horarioPedido)
+            if (dataAtual == dataPedido) {
+                holder.horario.text = SimpleDateFormat("hh:mm", Locale.ROOT).format(horarioPedido)
+            } else {
+                holder.horario.text = SimpleDateFormat("dd/MM", Locale.ROOT).format(horarioPedido)
+            }
         }
+
 
         //controlando o valor
         holder.valor.text = pedidos.valor
@@ -284,9 +301,9 @@ class PedidosAdapter(
         //controlando a critica
         pedidos.critica?.let {
             when (pedidos.critica) {
-                "SUCESSO" -> holder.imgCritica.load(R.drawable.ic_maxima_critica_sucesso)
-                "FALHA_PARCIAL" -> holder.imgCritica.load(R.drawable.ic_maxima_critica_alerta)
-                "AGUARDANDO" -> holder.imgCritica.load(R.drawable.ic_maxima_aguardando_critica)
+                SUCESSO -> holder.imgCritica.load(R.drawable.ic_maxima_critica_sucesso)
+                FALHA_PARCIAL -> holder.imgCritica.load(R.drawable.ic_maxima_critica_alerta)
+                AGUARDANDO -> holder.imgCritica.load(R.drawable.ic_maxima_aguardando_critica)
                 else -> holder.imgCritica.load(R.color.colorAccent)
             }
             holder.constraintCritica.visibility = View.VISIBLE
@@ -296,11 +313,11 @@ class PedidosAdapter(
         pedidos.legendas?.let {
             if (it.isNotEmpty()) {
                 when (it[0]) {
-                    "PEDIDO_SOFREU_CORTE" -> holder.imgLegenda.load(R.drawable.ic_maxima_legenda_corte)
-                    "PEDIDO_FEITO_TELEMARKETING" -> holder.imgLegenda.load(R.drawable.ic_maxima_legenda_telemarketing)
-                    "PEDIDO_CANCELADO_ERP" -> holder.imgLegenda.load(R.drawable.ic_maxima_legenda_cancelamento)
-                    "PEDIDO_DEVOLVIDO" -> holder.imgLegenda.load(R.drawable.ic_maxima_legenda_devolucao)
-                    "PEDIDO_EM_FALTA" -> holder.imgLegenda.load(R.drawable.ic_maxima_legenda_falta)
+                    PEDIDO_SOFREU_CORTE -> holder.imgLegenda.load(R.drawable.ic_maxima_legenda_corte)
+                    PEDIDO_FEITO_TELEMARKETING -> holder.imgLegenda.load(R.drawable.ic_maxima_legenda_telemarketing)
+                    PEDIDO_CANCELADO_ERP -> holder.imgLegenda.load(R.drawable.ic_maxima_legenda_cancelamento)
+                    PEDIDO_DEVOLVIDO -> holder.imgLegenda.load(R.drawable.ic_maxima_legenda_devolucao)
+                    PEDIDO_EM_FALTA -> holder.imgLegenda.load(R.drawable.ic_maxima_legenda_falta)
                     else -> holder.imgLegenda.load(R.color.colorAccent)
                 }
             }
