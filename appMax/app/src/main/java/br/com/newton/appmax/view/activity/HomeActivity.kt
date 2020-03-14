@@ -22,9 +22,6 @@ class HomeActivity : AppCompatActivity(), HomeInterface.ViewHomeInterface {
         imageViewResumo.load(R.drawable.ic_maxima_resumo_vendas)
         imageViewFerramentas.load(R.drawable.ic_maxima_ferramentas)
 
-        presenter.verifyInternet(this)
-        presenter.verifyVersion()
-
         constraintLayoutClientes.setOnClickListener {
             startActivity(Intent(this, ClienteActivity::class.java))
         }
@@ -41,5 +38,11 @@ class HomeActivity : AppCompatActivity(), HomeInterface.ViewHomeInterface {
 
     override fun showVersion(version: String) {
         textViewVersao.text = getString(R.string.version_home, version)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        presenter.verifyInternet(this)
+        presenter.verifyVersion()
     }
 }
