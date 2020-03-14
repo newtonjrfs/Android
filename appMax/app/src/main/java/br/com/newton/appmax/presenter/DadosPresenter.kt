@@ -3,6 +3,9 @@ package br.com.newton.appmax.presenter
 import br.com.newton.appmax.model.view.Contatos
 import br.com.newton.appmax.network.Interector
 import br.com.newton.appmax.task.DadosInterface
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class DadosPresenter(val view: DadosInterface.ViewDadosInterface) :
     DadosInterface.PresenterDadosInterface {
@@ -24,88 +27,42 @@ class DadosPresenter(val view: DadosInterface.ViewDadosInterface) :
                     list.clear()
 
                     val contato = it.contatos
-
                     contato?.let { contatos ->
                         for (i in contatos.indices) {
 
-                            val nomeContato =
-                                if (contatos[i]!!.nome != null && contatos[i]!!.nome!!.isNotEmpty()) {
-                                    contatos[i]!!.nome
-                                } else {
-                                    "Não informado"
-                                }
-                            val telefoneContato =
-                                if (contatos[i]!!.telefone != null && contatos[i]!!.telefone!!.isNotEmpty()) {
-                                    contatos[i]!!.telefone
-                                } else {
-                                    "Não informado"
-                                    //getString(R.string.nao_informado)
-                                }
-                            val celularContato =
-                                if (contatos[i]!!.celular != null && contatos[i]!!.celular!!.isNotEmpty()) {
-                                    contatos[i]!!.celular
-                                } else {
-                                    "Não informado"
-                                    //getString(R.string.nao_informado)
-                                }
-                            val conjugeContato =
-                                if (contatos[i]!!.conjuge != null && contatos[i]!!.conjuge!!.isNotEmpty()) {
-                                    contatos[i]!!.conjuge
-                                } else {
-                                    "Não informado"
-                                    //getString(R.string.nao_informado)
-                                }
-                            val tipoContato =
-                                if (contatos[i]!!.tipo != null && contatos[i]!!.tipo!!.isNotEmpty()) {
-                                    contatos[i]!!.tipo
-                                } else {
-                                    "Não informado"
-                                    //getString(R.string.nao_informado)
-                                }
-                            val emailContato =
-                                if (contatos[i]!!.e_mail != null && contatos[i]!!.e_mail!!.isNotEmpty()) {
-                                    contatos[i]!!.e_mail
-                                } else {
-                                    "Não informado"
-                                    //getString(R.string.nao_informado)
-                                }
                             val dataNascContato =
-                                if (contatos[i]!!.data_nascimento != null && contatos[i]!!.data_nascimento!!.isNotEmpty()) {
-                                    "${contatos[i]!!.data_nascimento!!.split("-")[2]}/" +
-                                            "${contatos[i]!!.data_nascimento!!.split("-")[1]}/" +
-                                            contatos[i]!!.data_nascimento!!.split("-")[0]
+                                if (!contatos[i].data_nascimento.isNullOrEmpty()) {
+                                    val date = SimpleDateFormat(
+                                        "yyyy-MM-dd",
+                                        Locale.ROOT
+                                    ).parse(contatos[i].data_nascimento!!)
+                                    SimpleDateFormat("dd/MM/yyyy", Locale.ROOT).format(date)
                                 } else {
-                                    "Não informado"
-                                    //getString(R.string.nao_informado)
+                                    contatos[i].data_nascimento
                                 }
+
                             val dataNascConj =
-                                if (contatos[i]!!.dataNascimentoConjuge != null && contatos[i]!!.dataNascimentoConjuge!!.isNotEmpty()) {
-                                    "${contatos[i]!!.dataNascimentoConjuge!!.split("-")[2]}/" +
-                                            "${contatos[i]!!.dataNascimentoConjuge!!.split("-")[1]}/" +
-                                            contatos[i]!!.dataNascimentoConjuge!!.split("-")[0]
+                                if (!contatos[i].dataNascimentoConjuge.isNullOrEmpty()) {
+                                    val date = SimpleDateFormat(
+                                        "yyyy-MM-dd",
+                                        Locale.ROOT
+                                    ).parse(contatos[i].dataNascimentoConjuge!!)
+                                    SimpleDateFormat("dd/MM/yyyy", Locale.ROOT).format(date)
                                 } else {
-                                    "Não informado"
-                                    //getString(R.string.nao_informado)
-                                }
-                            val timeContato =
-                                if (contatos[i]!!.time != null && contatos[i]!!.time!!.isNotEmpty()) {
-                                    contatos[i]!!.time
-                                } else {
-                                    "Não informado"
-                                    //getString(R.string.nao_informado)
+                                    contatos[i].dataNascimentoConjuge
                                 }
 
                             list.add(
                                 Contatos(
-                                    nome = nomeContato,
-                                    telefone = telefoneContato,
-                                    celular = celularContato,
-                                    conjuge = conjugeContato,
-                                    tipo = tipoContato,
-                                    email = emailContato,
+                                    nome = contatos[i].nome,
+                                    telefone = contatos[i].telefone,
+                                    celular = contatos[i].celular,
+                                    conjuge = contatos[i].conjuge,
+                                    tipo = contatos[i].tipo,
+                                    email = contatos[i].e_mail,
                                     dataNascimento = dataNascContato,
                                     dataNascimentoConjuge = dataNascConj,
-                                    time = timeContato
+                                    time = contatos[i].time
                                 )
                             )
                         }
