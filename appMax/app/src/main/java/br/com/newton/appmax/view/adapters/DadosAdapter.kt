@@ -25,18 +25,24 @@ class DadosAdapter(
     override fun getItemCount() = list.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        list[position].apply {
-            holder.celular.text = celular ?: naoInformado
-            holder.conjuge.text = conjuge ?: naoInformado
-            holder.tipo.text = tipo ?: naoInformado
-            holder.email.text = email ?: naoInformado
-            holder.dataNasc.text = dataNascimento ?: naoInformado
-            holder.dataNascConj.text = dataNascimentoConjuge ?: naoInformado
-            holder.time.text = time ?: naoInformado
+        val funcao: (String?) -> String = { entrada ->
+            if (entrada.isNullOrBlank()) {
+                naoInformado
+            } else {
+                entrada
+            }
         }
-
-
-
+        list[position].apply {
+            holder.nome.text = funcao(nome)
+            holder.telefone.text = funcao(telefone)
+            holder.celular.text = funcao(celular)
+            holder.conjuge.text = funcao(telefone)
+            holder.tipo.text = funcao(tipo)
+            holder.email.text = funcao(email)
+            holder.dataNasc.text = funcao(dataNascimento)
+            holder.dataNascConj.text = funcao(dataNascimentoConjuge)
+            holder.time.text = funcao(time)
+        }
     }
 
     class ViewHolder(itemView: View) :
