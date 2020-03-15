@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 class ContatoDao(
     @PrimaryKey(autoGenerate = true)
     val id: Long,
-    val idCliente: Long,
+    val idCliente: Int,
     val celular: String?, // 62988889888
     val conjuge: String?,
     val dataNascimentoConjuge: String?, // null

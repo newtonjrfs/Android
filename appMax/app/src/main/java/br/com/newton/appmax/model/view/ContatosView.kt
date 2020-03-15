@@ -1,6 +1,6 @@
 package br.com.newton.appmax.model.view
 
-class Contatos(
+class ContatosView(
     val nome: String?,
     val telefone: String?,
     val celular: String?,

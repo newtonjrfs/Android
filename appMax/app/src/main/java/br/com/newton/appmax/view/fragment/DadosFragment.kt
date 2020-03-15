@@ -11,8 +11,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.newton.appmax.R
-import br.com.newton.appmax.model.request.Cliente
-import br.com.newton.appmax.model.view.Contatos
+import br.com.newton.appmax.model.view.ClienteView
+import br.com.newton.appmax.model.view.ContatosView
 import br.com.newton.appmax.presenter.DadosPresenter
 import br.com.newton.appmax.task.DadosInterface
 import br.com.newton.appmax.view.adapters.DadosAdapter
@@ -43,18 +43,17 @@ class DadosFragment : Fragment(), DadosInterface.ViewDadosInterface {
         presenter.searchCliente()
     }
 
-    override fun showCliente(cliente: Cliente) {
-        textViewRazaoSocial.text = "${cliente.codigo} - ${cliente.razao_social}"
-        textViewNomeFantasia.text = "${cliente.nomeFantasia}"
-        textViewCpf.text = ""
-        textViewCnpj.text = "${cliente.cnpj}"
-        textViewRamo.text = "${cliente.ramo_atividade}"
-        textViewEndereco.text = "${cliente.endereco}"
+    override fun showCliente(cliente: ClienteView) {
+        textViewRazaoSocial.text = cliente.nome ?: ""
+        textViewNomeFantasia.text = cliente.nomeFantasia ?: ""
+        textViewCnpj.text = cliente.cnpj ?: ""
+        textViewRamo.text = cliente.ramo ?: ""
+        textViewEndereco.text = cliente.endereco ?: ""
 
 
     }
 
-    override fun showContatos(list: ArrayList<Contatos>) {
+    override fun showContatos(list: ArrayList<ContatosView>) {
         activity?.let { activityFragment ->
             val recyclerView =
                 activityFragment.findViewById<RecyclerView>(R.id.recyclerViewListaContatos)
@@ -75,22 +74,30 @@ class DadosFragment : Fragment(), DadosInterface.ViewDadosInterface {
     override fun showStatus(status: String?) {
         buttonVerifyStatus.setOnClickListener {
             val date = SimpleDateFormat("dd/MM/yyyy hh:mm", Locale.ROOT).format(Date())
-            Snackbar.make(
-                    activity!!.findViewById(R.id.coordinator),
-                    "$date - $status",
-                    8000
-                )
-                .apply {
-                    view.layoutParams = (view.layoutParams as CoordinatorLayout.LayoutParams)
-                        .apply {
-                            this.anchorId = R.id.bottomNavigationViewCliente
-                            this.anchorGravity = Gravity.TOP
-                            this.gravity = Gravity.TOP
-                        }
-                }
-                .setAction("FECHAR") {}
-                .setActionTextColor(Color.parseColor("#638735"))
-                .show()
+            snackToast(date)
         }
+    }
+
+    override fun alertNotCliente() {
+        snackToast(getString(R.string.nao_foi_possivel_carregar))
+    }
+
+    private fun snackToast(text: String) {
+        Snackbar.make(
+                activity!!.findViewById(R.id.coordinator),
+                text,
+                8000
+            )
+            .apply {
+                view.layoutParams = (view.layoutParams as CoordinatorLayout.LayoutParams)
+                    .apply {
+                        this.anchorId = R.id.bottomNavigationViewCliente
+                        this.anchorGravity = Gravity.TOP
+                        this.gravity = Gravity.TOP
+                    }
+            }
+            .setAction("FECHAR") {}
+            .setActionTextColor(Color.parseColor("#638735"))
+            .show()
     }
 }

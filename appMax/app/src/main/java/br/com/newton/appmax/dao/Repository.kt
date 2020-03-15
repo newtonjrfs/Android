@@ -1,6 +1,7 @@
 package br.com.newton.appmax.dao
 
 import br.com.newton.appmax.model.dao.ClienteDao
+import br.com.newton.appmax.model.dao.ContatoDao
 import br.com.newton.appmax.model.dao.LegendaDao
 import br.com.newton.appmax.model.dao.PedidoDao
 
@@ -31,6 +32,14 @@ class Repository {
 
     fun getLegenda(): List<LegendaDao>? {
         return db.LegendasDatabaseDao().selectLegenda()
+    }
+
+    fun insertContato(contato: List<ContatoDao>) {
+        db.ContatoDatabaseDao().insertContatoDao(contato)
+    }
+
+    fun getContato(): List<ContatoDao>? {
+        return db.ContatoDatabaseDao().searchContato()
     }
 
 

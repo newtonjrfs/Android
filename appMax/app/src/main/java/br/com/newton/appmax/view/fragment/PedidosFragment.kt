@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.newton.appmax.R
-import br.com.newton.appmax.model.view.Pedidos
+import br.com.newton.appmax.model.view.PedidosView
 import br.com.newton.appmax.presenter.PedidosPresenter
 import br.com.newton.appmax.task.PedidosInterface
 import br.com.newton.appmax.view.adapters.PedidosAdapter
@@ -41,7 +41,7 @@ class PedidosFragment : Fragment(), PedidosInterface.ViewPedidosInterface {
 
     }
 
-    override fun showPedidos(list: List<Pedidos>) {
+    override fun showPedidos(list: List<PedidosView>) {
 
         activity?.let { activityFragment ->
             val recyclerView =
@@ -63,7 +63,7 @@ class PedidosFragment : Fragment(), PedidosInterface.ViewPedidosInterface {
     override fun alertNotPedidos() {
         Snackbar.make(
                 activity!!.findViewById(R.id.coordinator),
-                "Não foi possivel realizar a leitura",
+                getString(R.string.nao_foi_possivel_carregar),
                 8000
             )
             .apply {

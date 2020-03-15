@@ -1,6 +1,6 @@
 package br.com.newton.appmax.task
 
-import br.com.newton.appmax.model.view.Pedidos
+import br.com.newton.appmax.model.view.PedidosView
 
 interface PedidosInterface {
 
@@ -10,7 +10,7 @@ interface PedidosInterface {
     }
 
     interface ViewPedidosInterface {
-        fun showPedidos(list: List<Pedidos>)
+        fun showPedidos(list: List<PedidosView>)
         fun alertNotPedidos()
 
     }

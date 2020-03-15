@@ -9,14 +9,14 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import br.com.newton.appmax.R
-import br.com.newton.appmax.model.view.Pedidos
+import br.com.newton.appmax.model.view.PedidosView
 import br.com.redcode.easyglide.library.load
 import br.com.redcode.easyglide.library.loadInView
 import java.text.SimpleDateFormat
 import java.util.*
 
 class PedidosAdapter(
-    private val list: List<Pedidos>
+    private val list: List<PedidosView>
 ) :
     RecyclerView.Adapter<PedidosAdapter.ViewHolder>() {
 
@@ -60,9 +60,9 @@ class PedidosAdapter(
         val pedidos = list[position]
 
         //controlando status e tipo
+        holder.status.text = pedidos.status
         if (ORCAMENTO == pedidos.tipo) {
             holder.sigla.text = "O"
-            holder.status.text = pedidos.status
             holder.sigla.setBackgroundColor(
                 ContextCompat.getColor(
                     holder.itemView.context,
@@ -84,7 +84,6 @@ class PedidosAdapter(
         } else {
             when (pedidos.status!!.toLowerCase()) {
                 EM_PROCESSAMENTO -> {
-                    holder.status.text = pedidos.status
                     holder.sigla.text = ""
                     holder.sigla.loadInView(R.drawable.ic_maxima_em_processamento)
                     holder.imgBackStatus.setColorFilter(
@@ -95,7 +94,6 @@ class PedidosAdapter(
                     )
                 }
                 RECUSADO -> {
-                    holder.status.text = pedidos.status
                     holder.sigla.text = "!"
                     holder.sigla.setBackgroundColor(
                         ContextCompat.getColor(
@@ -117,7 +115,6 @@ class PedidosAdapter(
                     )
                 }
                 PENDENTE -> {
-                    holder.status.text = pedidos.status
                     holder.sigla.text = "P"
                     holder.sigla.setBackgroundColor(
                         ContextCompat.getColor(
@@ -139,7 +136,6 @@ class PedidosAdapter(
                     )
                 }
                 PROCESSADO -> {
-                    holder.status.text = pedidos.status
                     holder.sigla.text = "P"
                     holder.sigla.setBackgroundColor(
                         ContextCompat.getColor(
@@ -161,7 +157,6 @@ class PedidosAdapter(
                     )
                 }
                 BLOQUEADO -> {
-                    holder.status.text = pedidos.status
                     holder.sigla.text = "B"
                     holder.sigla.setBackgroundColor(
                         ContextCompat.getColor(
@@ -183,7 +178,6 @@ class PedidosAdapter(
                     )
                 }
                 LIBERADO -> {
-                    holder.status.text = pedidos.status
                     holder.sigla.text = "L"
                     holder.sigla.setBackgroundColor(
                         ContextCompat.getColor(
@@ -205,7 +199,6 @@ class PedidosAdapter(
                     )
                 }
                 MONTADO -> {
-                    holder.status.text = pedidos.status
                     holder.sigla.text = "M"
                     holder.sigla.setBackgroundColor(
                         ContextCompat.getColor(
@@ -227,7 +220,6 @@ class PedidosAdapter(
                     )
                 }
                 FATURADO -> {
-                    holder.status.text = pedidos.status
                     holder.sigla.text = "F"
                     holder.sigla.setBackgroundColor(
                         ContextCompat.getColor(
@@ -249,7 +241,6 @@ class PedidosAdapter(
                     )
                 }
                 CANCELADO -> {
-                    holder.status.text = pedidos.status
                     holder.sigla.text = "C"
                     holder.sigla.setBackgroundColor(
                         ContextCompat.getColor(

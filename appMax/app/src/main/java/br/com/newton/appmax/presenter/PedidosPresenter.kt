@@ -4,7 +4,7 @@ import br.com.newton.appmax.dao.Repository
 import br.com.newton.appmax.general.MyCoroutines
 import br.com.newton.appmax.model.dao.LegendaDao
 import br.com.newton.appmax.model.dao.PedidoDao
-import br.com.newton.appmax.model.view.Pedidos
+import br.com.newton.appmax.model.view.PedidosView
 import br.com.newton.appmax.network.Interector
 import br.com.newton.appmax.task.PedidosInterface
 import kotlinx.coroutines.launch
@@ -81,7 +81,7 @@ class PedidosPresenter(val view: PedidosInterface.ViewPedidosInterface) :
     }
 
     private fun convertPedidos(listaPedido: List<PedidoDao>, listaLegendas: List<LegendaDao>?) {
-        val list = ArrayList<Pedidos>()
+        val list = ArrayList<PedidosView>()
         list.clear()
         for (i in listaPedido.indices) {
             var legenda = ""
@@ -95,7 +95,7 @@ class PedidosPresenter(val view: PedidosInterface.ViewPedidosInterface) :
             }
 
             list.add(
-                Pedidos(
+                PedidosView(
                     pedido = "${listaPedido[i].numero_ped_Rca} / ${listaPedido[i].numero_ped_erp}",
                     cliente = "${listaPedido[i].codigoCliente}-${listaPedido[i].NOMECLIENTE}",
                     status = listaPedido[i].status,

@@ -1,6 +1,6 @@
 package br.com.newton.appmax.model.view
 
-class Pedidos(
+class PedidosView(
     val pedido: String?,
     val cliente: String?,
     val status: String?,

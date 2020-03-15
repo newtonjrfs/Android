@@ -82,34 +82,6 @@
                 tools:text="DROGARIA CAMPESTRE" />
 
             <TextView
-                android:id="@+id/textView10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="2dp"
-                android:fontFamily="@font/santral_regular"
-                android:text="@string/cpf"
-                android:textAllCaps="true"
-                android:textColor="@color/text_gray_fixed"
-                android:textSize="8sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewNomeFantasia" />
-
-            <TextView
-                android:id="@+id/textViewCpf"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginEnd="8dp"
-                android:fontFamily="@font/santral_regular"
-                android:textColor="@android:color/black"
-                android:textSize="8sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textView10"
-                app:layout_constraintTop_toTopOf="@+id/textView10"
-                tools:text="039.039.039-61" />
-
-            <TextView
                 android:id="@+id/textView12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -121,7 +93,7 @@
                 android:textColor="@color/text_gray_fixed"
                 android:textSize="8sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView10" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewNomeFantasia" />
 
             <TextView
                 android:id="@+id/textViewCnpj"

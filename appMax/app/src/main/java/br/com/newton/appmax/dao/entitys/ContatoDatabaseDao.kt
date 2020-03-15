@@ -10,7 +10,7 @@ import br.com.newton.appmax.model.dao.ContatoDao
 interface ContatoDatabaseDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertContatoDao(contatoDao: ContatoDao)
+    fun insertContatoDao(contatoDao: List<ContatoDao>)
 
     @Query("SELECT * FROM ContatoDao")
     fun searchContato(): List<ContatoDao>

@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import br.com.newton.appmax.R
-import br.com.newton.appmax.model.view.Contatos
+import br.com.newton.appmax.model.view.ContatosView
 class DadosAdapter(
-    private val list: List<Contatos>,
+    private val list: List<ContatosView>,
     private val naoInformado: String
 ) :
     RecyclerView.Adapter<DadosAdapter.ViewHolder>() {
