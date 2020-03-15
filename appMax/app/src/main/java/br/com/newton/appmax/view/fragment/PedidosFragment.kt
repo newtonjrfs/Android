@@ -30,7 +30,6 @@ class PedidosFragment : Fragment(), PedidosInterface.ViewPedidosInterface {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        activity!!.setTitle(R.string.historico_de_pedidos)
         return inflater.inflate(R.layout.fragment_pedidos, container, false)
     }
 

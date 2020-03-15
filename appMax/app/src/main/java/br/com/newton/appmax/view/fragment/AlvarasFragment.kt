@@ -18,7 +18,6 @@ class AlvarasFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        activity!!.setTitle(R.string.alvaras)
         return inflater.inflate(R.layout.fragment_alvaras, container, false)
     }
 
