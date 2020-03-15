@@ -4,7 +4,7 @@ class Pedidos(
     val pedido: String?,
     val cliente: String?,
     val status: String?,
-    val legendas: List<String>?,
+    val legendas: String,
     val horarios: String?,
     val valor: String?,
     val critica: String?,

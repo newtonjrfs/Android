@@ -1,9 +1,12 @@
 package br.com.newton.appmax.view.fragment
 
+import android.graphics.Color
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -12,6 +15,7 @@ import br.com.newton.appmax.model.view.Pedidos
 import br.com.newton.appmax.presenter.PedidosPresenter
 import br.com.newton.appmax.task.PedidosInterface
 import br.com.newton.appmax.view.adapters.PedidosAdapter
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_pedidos.*
 
 /**
@@ -37,7 +41,7 @@ class PedidosFragment : Fragment(), PedidosInterface.ViewPedidosInterface {
 
     }
 
-    override fun showPedidos(list: java.util.ArrayList<Pedidos>) {
+    override fun showPedidos(list: List<Pedidos>) {
 
         activity?.let { activityFragment ->
             val recyclerView =
@@ -54,5 +58,24 @@ class PedidosFragment : Fragment(), PedidosInterface.ViewPedidosInterface {
         }
         progressBarPedidos.visibility = View.GONE
 
+    }
+
+    override fun alertNotPedidos() {
+        Snackbar.make(
+                activity!!.findViewById(R.id.coordinator),
+                "Não foi possivel realizar a leitura",
+                8000
+            )
+            .apply {
+                view.layoutParams = (view.layoutParams as CoordinatorLayout.LayoutParams)
+                    .apply {
+                        this.anchorId = R.id.bottomNavigationViewCliente
+                        this.anchorGravity = Gravity.TOP
+                        this.gravity = Gravity.TOP
+                    }
+            }
+            .setAction("FECHAR") {}
+            .setActionTextColor(Color.parseColor("#638735"))
+            .show()
     }
 }

@@ -42,8 +42,6 @@ class PedidosAdapter(
     private val PEDIDO_EM_FALTA = "PEDIDO_EM_FALTA"
 
 
-
-
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -310,17 +308,13 @@ class PedidosAdapter(
         }
 
         //controlando a legenda
-        pedidos.legendas?.let {
-            if (it.isNotEmpty()) {
-                when (it[0]) {
-                    PEDIDO_SOFREU_CORTE -> holder.imgLegenda.load(R.drawable.ic_maxima_legenda_corte)
-                    PEDIDO_FEITO_TELEMARKETING -> holder.imgLegenda.load(R.drawable.ic_maxima_legenda_telemarketing)
-                    PEDIDO_CANCELADO_ERP -> holder.imgLegenda.load(R.drawable.ic_maxima_legenda_cancelamento)
-                    PEDIDO_DEVOLVIDO -> holder.imgLegenda.load(R.drawable.ic_maxima_legenda_devolucao)
-                    PEDIDO_EM_FALTA -> holder.imgLegenda.load(R.drawable.ic_maxima_legenda_falta)
-                    else -> holder.imgLegenda.load(R.color.colorAccent)
-                }
-            }
+        when (pedidos.legendas) {
+            PEDIDO_SOFREU_CORTE -> holder.imgLegenda.load(R.drawable.ic_maxima_legenda_corte)
+            PEDIDO_FEITO_TELEMARKETING -> holder.imgLegenda.load(R.drawable.ic_maxima_legenda_telemarketing)
+            PEDIDO_CANCELADO_ERP -> holder.imgLegenda.load(R.drawable.ic_maxima_legenda_cancelamento)
+            PEDIDO_DEVOLVIDO -> holder.imgLegenda.load(R.drawable.ic_maxima_legenda_devolucao)
+            PEDIDO_EM_FALTA -> holder.imgLegenda.load(R.drawable.ic_maxima_legenda_falta)
+            else -> holder.imgLegenda.load(R.color.colorAccent)
         }
     }
 
