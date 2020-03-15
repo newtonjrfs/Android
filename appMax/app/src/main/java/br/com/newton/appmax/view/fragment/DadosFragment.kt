@@ -74,7 +74,7 @@ class DadosFragment : Fragment(), DadosInterface.ViewDadosInterface {
     override fun showStatus(status: String?) {
         buttonVerifyStatus.setOnClickListener {
             val date = SimpleDateFormat("dd/MM/yyyy hh:mm", Locale.ROOT).format(Date())
-            snackToast(date)
+            snackToast("$date - $status")
         }
     }
 

@@ -78,6 +78,7 @@ class DadosPresenter(val view: DadosInterface.ViewDadosInterface) :
                 }
             } else {
                 convertClienteDao(clientes)
+                launch(main()) { view.showStatus(clientes.status) }
                 launch(io()) {
                     val listContatoDao = repository.getContato()
                     listContatoDao?.let {
