@@ -1,5 +1,6 @@
 package br.com.newton.appmax.view.fragment
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.Gravity
@@ -15,11 +16,13 @@ import br.com.newton.appmax.model.view.ClienteView
 import br.com.newton.appmax.model.view.ContatosView
 import br.com.newton.appmax.presenter.DadosPresenter
 import br.com.newton.appmax.task.DadosInterface
+import br.com.newton.appmax.view.activity.HomeActivity
 import br.com.newton.appmax.view.adapters.DadosAdapter
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_dados.*
 import java.text.SimpleDateFormat
 import java.util.*
+
 
 /**
  * A simple [Fragment] subclass.
@@ -41,6 +44,10 @@ class DadosFragment : Fragment(), DadosInterface.ViewDadosInterface {
         super.onViewCreated(view, savedInstanceState)
 
         presenter.searchCliente()
+
+        toolbarDados.setNavigationOnClickListener {
+            startActivity(Intent(context, HomeActivity::class.java))
+        }
     }
 
     override fun showCliente(cliente: ClienteView) {
