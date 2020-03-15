@@ -1,7 +1,6 @@
 package br.com.newton.appmax.view.activity
 
 import android.os.Bundle
-import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import br.com.newton.appmax.R
@@ -26,10 +25,13 @@ class ClienteActivity : AppCompatActivity() {
         }
 
         bottomNavigationViewCliente.setOnNavigationItemSelectedListener {
-            when (it.itemId) {
-                R.id.dados -> startFragment(DadosFragment())
-                R.id.historico -> addFragment(PedidosFragment())
-                R.id.alvaras -> addFragment(AlvarasFragment())
+
+            if (bottomNavigationViewCliente.selectedItemId != it.itemId) {
+                when (it.itemId) {
+                    R.id.legenda -> startFragment(DadosFragment())
+                    R.id.historico -> addFragment(PedidosFragment())
+                    R.id.alvaras -> addFragment(AlvarasFragment())
+                }
             }
             true
         }
@@ -50,16 +52,13 @@ class ClienteActivity : AppCompatActivity() {
             .addToBackStack(null)
             .commit()
 
-        //supportFragmentManager.backStackEntryCount > 1
-        //pop back para remover
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return super.onOptionsItemSelected(item)
-
+    override fun onBackPressed() {
+        super.onBackPressed()
+        if (supportFragmentManager.backStackEntryCount > 1) {
+            supportFragmentManager.popBackStackImmediate()
+        }
     }
-
-
-
 
 }

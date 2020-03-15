@@ -42,9 +42,7 @@ class DadosFragment : Fragment(), DadosInterface.ViewDadosInterface {
 
         presenter.searchCliente()
 
-        toolbarDados.setNavigationOnClickListener {
-            activity!!.finish()
-        }
+        toolbarDados.setNavigationOnClickListener { activity!!.finish() }
     }
 
     override fun showCliente(cliente: ClienteView) {

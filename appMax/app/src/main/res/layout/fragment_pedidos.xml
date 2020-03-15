@@ -15,6 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:menu="@menu/menu_legenda"
         app:navigationIcon="@drawable/ic_arrow_back_white_24dp"
         app:title="@string/historico_de_pedidos"
         app:titleTextColor="@android:color/white" />

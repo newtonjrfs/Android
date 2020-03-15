@@ -2,10 +2,7 @@ package br.com.newton.appmax.view.fragment
 
 import android.graphics.Color
 import android.os.Bundle
-import android.view.Gravity
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,6 +14,7 @@ import br.com.newton.appmax.task.PedidosInterface
 import br.com.newton.appmax.view.adapters.PedidosAdapter
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_pedidos.*
+
 
 /**
  * A simple [Fragment] subclass.
@@ -38,6 +36,10 @@ class PedidosFragment : Fragment(), PedidosInterface.ViewPedidosInterface {
 
         presenter.searchPedidos()
 
+        toolbarPedidos.setNavigationOnClickListener {
+            activity!!.supportFragmentManager.popBackStackImmediate()
+        }
+
     }
 
     override fun showPedidos(list: List<PedidosView>) {
@@ -50,7 +52,6 @@ class PedidosFragment : Fragment(), PedidosInterface.ViewPedidosInterface {
                     context,
                     RecyclerView.VERTICAL,
                     false
-
                 )
             val adapter = PedidosAdapter(list)
             recyclerView.adapter = adapter
@@ -77,4 +78,11 @@ class PedidosFragment : Fragment(), PedidosInterface.ViewPedidosInterface {
             .setActionTextColor(Color.parseColor("#638735"))
             .show()
     }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        val inflater: MenuInflater = MenuInflater(context)
+        inflater.inflate(R.menu.menu_legenda, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
 }

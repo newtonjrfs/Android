@@ -34,4 +34,6 @@
     <string name="critica">Crítica:</string>
     <string name="nao_informado">Não informado</string>
     <string name="nao_foi_possivel_carregar">Não foi possivel carregar</string>
+    <string name="legendas">Legendas</string>
+    <string name="pesquisar">pesquisar</string>
 </resources>
