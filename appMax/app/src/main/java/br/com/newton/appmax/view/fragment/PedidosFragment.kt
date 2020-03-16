@@ -2,6 +2,7 @@ package br.com.newton.appmax.view.fragment
 
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.fragment.app.Fragment
@@ -37,7 +38,9 @@ class PedidosFragment : Fragment(), PedidosInterface.ViewPedidosInterface {
         presenter.searchPedidos()
 
         toolbarPedidos.setNavigationOnClickListener {
-            activity!!.supportFragmentManager.popBackStackImmediate()
+            val teste = activity!!.supportFragmentManager.fragments
+            Log.d("testeteste56482", teste.toString())
+            activity!!.supportFragmentManager.popBackStack()
         }
 
     }
@@ -82,6 +85,7 @@ class PedidosFragment : Fragment(), PedidosInterface.ViewPedidosInterface {
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         val inflater: MenuInflater = MenuInflater(context)
         inflater.inflate(R.menu.menu_legenda, menu)
+
         super.onCreateOptionsMenu(menu, inflater)
     }
 

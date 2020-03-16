@@ -25,7 +25,7 @@ class AlvarasFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         imageViewEmpty.load(R.drawable.maxima_empty_state)
         toolbarAlvaras.setNavigationOnClickListener {
-            activity!!.supportFragmentManager.popBackStackImmediate()
+            activity!!.supportFragmentManager.popBackStack()
         }
     }
 
