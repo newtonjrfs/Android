@@ -67,5 +67,9 @@ dependencies {
     implementation "android.arch.persistence.room:runtime:$room_version"
     kapt "android.arch.persistence.room:compiler:$room_version"
 
+    //work manager
+    implementation "androidx.work:work-runtime-ktx:2.3.1"
+
+
 
 }
