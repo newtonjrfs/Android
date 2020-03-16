@@ -29,11 +29,10 @@ class ClienteActivity : AppCompatActivity() {
             if (bottomNavigationViewCliente.selectedItemId != it.itemId) {
                 when (it.itemId) {
                     R.id.dados -> startFragment(DadosFragment())
-                    R.id.historico -> addFragment(
-                        PedidosFragment(),
-                        getString(R.string.historico_de_pedidos)
+                    R.id.historico -> startFragment(
+                        PedidosFragment()
                     )
-                    R.id.alvaras -> addFragment(AlvarasFragment(), getString(R.string.alvaras))
+                    R.id.alvaras -> startFragment(AlvarasFragment())
                 }
             }
             true
@@ -47,14 +46,6 @@ class ClienteActivity : AppCompatActivity() {
             .commit()
     }
 
-    private fun addFragment(fragment: Fragment, tag: String) {
-
-        supportFragmentManager.beginTransaction()
-            .add(R.id.fragmentCliente, fragment)
-            .addToBackStack(tag)
-            .commit()
-
-    }
 
     override fun onBackPressed() {
         super.onBackPressed()
@@ -62,5 +53,6 @@ class ClienteActivity : AppCompatActivity() {
             supportFragmentManager.popBackStack()
         }
     }
+
 
 }

@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import br.com.newton.appmax.R
 import br.com.redcode.easyglide.library.load
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.fragment_alvaras.*
 
 /**
@@ -24,8 +25,10 @@ class AlvarasFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         imageViewEmpty.load(R.drawable.maxima_empty_state)
+        val nav = activity!!.findViewById<BottomNavigationView>(R.id.bottomNavigationViewCliente)
+        nav.selectedItemId = R.id.alvaras
         toolbarAlvaras.setNavigationOnClickListener {
-            activity!!.supportFragmentManager.popBackStack()
+            activity!!.supportFragmentManager.popBackStackImmediate()
         }
     }
 

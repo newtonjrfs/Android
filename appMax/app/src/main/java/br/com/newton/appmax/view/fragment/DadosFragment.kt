@@ -16,6 +16,7 @@ import br.com.newton.appmax.model.view.ContatosView
 import br.com.newton.appmax.presenter.DadosPresenter
 import br.com.newton.appmax.task.DadosInterface
 import br.com.newton.appmax.view.adapters.DadosAdapter
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_dados.*
 import java.text.SimpleDateFormat
@@ -39,18 +40,25 @@ class DadosFragment : Fragment(), DadosInterface.ViewDadosInterface {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        presenter.searchCliente()
+        val nav = activity!!.findViewById<BottomNavigationView>(R.id.bottomNavigationViewCliente)
+        nav.selectedItemId = R.id.dados
         toolbarDados.setNavigationOnClickListener { activity!!.finish() }
     }
 
     override fun showCliente(cliente: ClienteView) {
-        textViewRazaoSocial.text = cliente.nome ?: ""
-        textViewNomeFantasia.text = cliente.nomeFantasia ?: ""
-        textViewCnpj.text = cliente.cnpj ?: ""
-        textViewRamo.text = cliente.ramo ?: ""
-        textViewEndereco.text = cliente.endereco ?: ""
 
+        constraintLayout?.let {
+            textViewRazaoSocial.text = cliente.nome ?: ""
+            textViewNomeFantasia.text = cliente.nomeFantasia ?: ""
+            textViewCnpj.text = cliente.cnpj ?: ""
+            textViewRamo.text = cliente.ramo ?: ""
+            textViewEndereco.text = cliente.endereco ?: ""
+        }
+    }
 
+    override fun onResume() {
+        super.onResume()
+        presenter.searchCliente()
     }
 
     override fun showContatos(list: ArrayList<ContatosView>) {
@@ -67,15 +75,19 @@ class DadosFragment : Fragment(), DadosInterface.ViewDadosInterface {
             val adapter = DadosAdapter(list, getString(R.string.nao_informado))
             recyclerView.adapter = adapter
         }
-        progressBarDados.visibility = View.GONE
-
+        progressBarDados?.let {
+            progressBarDados.visibility = View.GONE
+        }
     }
 
     override fun showStatus(status: String?) {
-        buttonVerifyStatus.setOnClickListener {
-            val date = SimpleDateFormat("dd/MM/yyyy hh:mm", Locale.ROOT).format(Date())
-            snackToast("$date - $status")
+        buttonVerifyStatus?.let {
+            buttonVerifyStatus.setOnClickListener {
+                val date = SimpleDateFormat("dd/MM/yyyy hh:mm", Locale.ROOT).format(Date())
+                snackToast("$date - $status")
+            }
         }
+
     }
 
     override fun alertNotCliente() {

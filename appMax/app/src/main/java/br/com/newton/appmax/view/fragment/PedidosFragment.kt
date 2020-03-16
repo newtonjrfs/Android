@@ -14,6 +14,7 @@ import br.com.newton.appmax.model.view.PedidosView
 import br.com.newton.appmax.presenter.PedidosPresenter
 import br.com.newton.appmax.task.PedidosInterface
 import br.com.newton.appmax.view.adapters.PedidosAdapter
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_pedidos.*
 
@@ -36,9 +37,11 @@ class PedidosFragment : Fragment(), PedidosInterface.ViewPedidosInterface {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val nav = activity!!.findViewById<BottomNavigationView>(R.id.bottomNavigationViewCliente)
+        nav.selectedItemId = R.id.historico
 
         toolbarPedidos.setNavigationOnClickListener {
-            activity!!.supportFragmentManager.popBackStack()
+            activity!!.supportFragmentManager.popBackStackImmediate()
         }
 
         toolbarPedidos.setOnMenuItemClickListener {
@@ -69,7 +72,10 @@ class PedidosFragment : Fragment(), PedidosInterface.ViewPedidosInterface {
             val adapter = PedidosAdapter(list)
             recyclerView.adapter = adapter
         }
-        progressBarPedidos.visibility = View.GONE
+
+        progressBarPedidos?.let {
+            progressBarPedidos.visibility = View.GONE
+        }
 
     }
 
