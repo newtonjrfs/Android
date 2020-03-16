@@ -59,7 +59,7 @@ class ClienteActivity : AppCompatActivity() {
     override fun onBackPressed() {
         super.onBackPressed()
         if (supportFragmentManager.backStackEntryCount > 1) {
-            supportFragmentManager.popBackStackImmediate()
+            supportFragmentManager.popBackStack()
         }
     }
 

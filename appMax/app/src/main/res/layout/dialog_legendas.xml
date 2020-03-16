@@ -2,13 +2,13 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/textView32"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="4dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="2dp"
         android:background="@drawable/background_branco"
         android:backgroundTint="@color/red_cancelado"
         android:gravity="center"
@@ -19,9 +19,9 @@
 
     <TextView
         android:id="@+id/textView33"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="4dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="2dp"
         android:background="@drawable/background_branco"
         android:backgroundTint="@color/gray_orcamento"
         android:gravity="center"
@@ -32,9 +32,9 @@
 
     <TextView
         android:id="@+id/textView31"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="4dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="2dp"
         android:background="@drawable/background_branco"
         android:backgroundTint="@color/green_faturado"
         android:gravity="center"
@@ -45,9 +45,9 @@
 
     <TextView
         android:id="@+id/textView25"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="4dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="2dp"
         android:background="@drawable/background_branco"
         android:backgroundTint="@color/blue_liberado"
         android:gravity="center"
@@ -58,9 +58,9 @@
 
     <TextView
         android:id="@+id/textView26"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="4dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="2dp"
         android:background="@drawable/background_branco"
         android:backgroundTint="@color/green_montado"
         android:gravity="center"
@@ -71,9 +71,9 @@
 
     <TextView
         android:id="@+id/textView18"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="4dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="2dp"
         android:background="@drawable/background_branco"
         android:backgroundTint="@color/blue_bloqueado"
         android:gravity="center"
@@ -84,9 +84,9 @@
 
     <TextView
         android:id="@+id/textView17"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="4dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="2dp"
         android:background="@drawable/background_branco"
         android:backgroundTint="@color/gray_pendente"
         android:gravity="center"
@@ -100,7 +100,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:fontFamily="@font/santral_bold"
         android:text="@string/legendas"
@@ -113,7 +113,6 @@
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:fontFamily="@font/santral_regular"
         android:text="@string/status_do_pedido_no_erp"
         android:textColor="@android:color/black"
@@ -123,10 +122,10 @@
 
     <TextView
         android:id="@+id/textView11"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:background="@drawable/background_branco"
         android:backgroundTint="@color/gray_em_processamento"
         app:layout_constraintStart_toStartOf="parent"
@@ -157,9 +156,9 @@
 
     <TextView
         android:id="@+id/textView15"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="4dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="2dp"
         android:background="@drawable/background_branco"
         android:backgroundTint="@color/laranja_recusado"
         android:gravity="center"
@@ -277,7 +276,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:fontFamily="@font/santral_regular"
         android:text="@string/critica"
         android:textColor="@android:color/black"
@@ -287,37 +286,37 @@
 
     <ImageView
         android:id="@+id/imageView10"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView43"
         app:srcCompat="@drawable/ic_maxima_aguardando_critica" />
 
     <ImageView
         android:id="@+id/imageView11"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="4dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="2dp"
         app:layout_constraintStart_toStartOf="@+id/imageView10"
         app:layout_constraintTop_toBottomOf="@+id/imageView10"
         app:srcCompat="@drawable/ic_maxima_critica_sucesso" />
 
     <ImageView
         android:id="@+id/imageView12"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="4dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="2dp"
         app:layout_constraintStart_toStartOf="@+id/imageView10"
         app:layout_constraintTop_toBottomOf="@+id/imageView13"
         app:srcCompat="@drawable/ic_error" />
 
     <ImageView
         android:id="@+id/imageView13"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="4dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="2dp"
         app:layout_constraintStart_toStartOf="@+id/imageView10"
         app:layout_constraintTop_toBottomOf="@+id/imageView11"
         app:srcCompat="@drawable/ic_maxima_critica_alerta" />
@@ -379,7 +378,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:fontFamily="@font/santral_regular"
         android:text="@string/legendas"
         android:textColor="@android:color/black"
@@ -389,50 +388,50 @@
 
     <ImageView
         android:id="@+id/imageView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="2dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView48"
         app:srcCompat="@drawable/ic_maxima_legenda_corte" />
 
     <ImageView
         android:id="@+id/imageView15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="2dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView14"
         app:srcCompat="@drawable/ic_maxima_legenda_falta" />
 
     <ImageView
         android:id="@+id/imageView16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="2dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView15"
         app:srcCompat="@drawable/ic_maxima_legenda_cancelamento" />
 
     <ImageView
         android:id="@+id/imageView17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="2dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView16"
         app:srcCompat="@drawable/ic_maxima_legenda_devolucao" />
 
     <ImageView
         android:id="@+id/imageView18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="2dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView17"
         app:srcCompat="@drawable/ic_maxima_legenda_telemarketing" />
@@ -503,17 +502,18 @@
         app:layout_constraintTop_toTopOf="@+id/imageView18" />
 
     <TextView
-        android:id="@+id/textView54"
+        android:id="@+id/textViewFechar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="16dp"
         android:fontFamily="@font/santral_regular"
         android:text="@string/fechar"
         android:textAllCaps="true"
         android:textColor="@color/verde_musgo"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView18" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

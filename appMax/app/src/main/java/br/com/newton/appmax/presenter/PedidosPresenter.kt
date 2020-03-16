@@ -12,8 +12,8 @@ import kotlinx.coroutines.launch
 class PedidosPresenter(val view: PedidosInterface.ViewPedidosInterface) :
     PedidosInterface.PresenterPedidosInterface, MyCoroutines() {
 
-    val interector by lazy { Interector() }
-    val repository by lazy { Repository() }
+    private val interector by lazy { Interector() }
+    private val repository by lazy { Repository() }
 
     override fun searchPedidos() {
 

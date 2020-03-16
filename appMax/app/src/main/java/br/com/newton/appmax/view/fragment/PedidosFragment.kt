@@ -1,9 +1,10 @@
 package br.com.newton.appmax.view.fragment
 
+import android.app.AlertDialog
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.*
+import android.widget.TextView
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,12 +23,13 @@ import kotlinx.android.synthetic.main.fragment_pedidos.*
  */
 class PedidosFragment : Fragment(), PedidosInterface.ViewPedidosInterface {
 
-    val presenter by lazy { PedidosPresenter(this) }
+    private val presenter by lazy { PedidosPresenter(this) }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        setHasOptionsMenu(true)
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_pedidos, container, false)
     }
@@ -35,14 +37,22 @@ class PedidosFragment : Fragment(), PedidosInterface.ViewPedidosInterface {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        presenter.searchPedidos()
-
         toolbarPedidos.setNavigationOnClickListener {
-            val teste = activity!!.supportFragmentManager.fragments
-            Log.d("testeteste56482", teste.toString())
             activity!!.supportFragmentManager.popBackStack()
         }
 
+        toolbarPedidos.setOnMenuItemClickListener {
+            when (it.itemId) {
+                R.id.item_legendas -> alertDialogLegendas()
+            }
+            true
+        }
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        presenter.searchPedidos()
     }
 
     override fun showPedidos(list: List<PedidosView>) {
@@ -83,10 +93,26 @@ class PedidosFragment : Fragment(), PedidosInterface.ViewPedidosInterface {
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        val inflater: MenuInflater = MenuInflater(context)
-        inflater.inflate(R.menu.menu_legenda, menu)
-
+        MenuInflater(context).inflate(R.menu.menu_legendas, menu)
         super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    private fun alertDialogLegendas() {
+        val builder = AlertDialog.Builder(context)
+        val li: LayoutInflater = (LayoutInflater.from(context))
+        val view = li.inflate(R.layout.dialog_legendas, null)
+        val finish = view.findViewById<TextView>(R.id.textViewFechar)
+
+        builder.setView(view)
+
+        val alertDialog: AlertDialog = builder.create()
+        alertDialog.setCanceledOnTouchOutside(false)
+
+        finish.setOnClickListener {
+            alertDialog.dismiss()
+        }
+
+        alertDialog.show()
     }
 
 }

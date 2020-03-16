@@ -27,7 +27,7 @@ import java.util.*
  */
 class DadosFragment : Fragment(), DadosInterface.ViewDadosInterface {
 
-    val presenter by lazy { DadosPresenter(this) }
+    private val presenter by lazy { DadosPresenter(this) }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,9 +39,7 @@ class DadosFragment : Fragment(), DadosInterface.ViewDadosInterface {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         presenter.searchCliente()
-
         toolbarDados.setNavigationOnClickListener { activity!!.finish() }
     }
 

@@ -10,8 +10,6 @@ import java.util.concurrent.TimeUnit
 
 class App : Application() {
 
-    var statusApp = false
-
     companion object {
         private lateinit var mContext: WeakReference<Context>
         fun getContext() = mContext.get()
@@ -20,22 +18,15 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
         mContext = WeakReference(this)
-        statusApp = true
 
         val jobSyncWorker = PeriodicWorkRequest.Builder(
             SyncWorker::class.java,
             5,
             TimeUnit.MINUTES,
-            1,
-            TimeUnit.MILLISECONDS
+            5,
+            TimeUnit.MINUTES
         ).build()
         WorkManager.getInstance(this).enqueue(jobSyncWorker)
     }
-
-    override fun onTerminate() {
-        super.onTerminate()
-        statusApp = false
-    }
-
 
 }

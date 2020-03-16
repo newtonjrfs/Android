@@ -1,5 +1,7 @@
 package br.com.newton.appmax.general
 
+import android.app.ActivityManager
+import android.app.ActivityManager.RunningAppProcessInfo
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
@@ -11,13 +13,11 @@ import androidx.core.app.NotificationManagerCompat
 import androidx.work.Worker
 import androidx.work.WorkerParameters
 import br.com.newton.appmax.R
-import br.com.newton.appmax.dao.App
 import br.com.newton.appmax.view.activity.SplashActivity
+
 
 class SyncWorker(appContext: Context, workerParams: WorkerParameters) :
     Worker(appContext, workerParams) {
-
-    val app by lazy { App() }
 
     override fun doWork(): Result {
 
@@ -28,7 +28,12 @@ class SyncWorker(appContext: Context, workerParams: WorkerParameters) :
 
     private fun startNotification() {
 
-        if (!app.statusApp) {
+        val myProcess = RunningAppProcessInfo()
+        ActivityManager.getMyMemoryState(myProcess)
+        val isInBackground =
+            myProcess.importance != RunningAppProcessInfo.IMPORTANCE_FOREGROUND
+
+        if (isInBackground) {
 
             createNotificationChannel(applicationContext)
 
