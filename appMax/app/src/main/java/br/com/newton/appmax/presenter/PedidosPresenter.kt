@@ -18,13 +18,13 @@ class PedidosPresenter(val view: PedidosInterface.ViewPedidosInterface) :
     override fun searchPedidos() {
 
         launch(io()) {
-            val listPedidos = repository.getPedido()
-            if (listPedidos.isNullOrEmpty()) {
+            val listaDePedidosBanco = repository.getPedido()
+            if (listaDePedidosBanco.isNullOrEmpty()) {
                 interector.searchPedidos { result ->
 
                     if (result != null) {
-                        val pedidos = result.pedidos
-                        pedidos?.let { listaPedido ->
+                        val listaDePedidosRequicao = result.pedidos
+                        listaDePedidosRequicao?.let { listaPedido ->
                             val arrayListPedido = ArrayList<PedidoDao>()
                             arrayListPedido.clear()
 
@@ -71,7 +71,7 @@ class PedidosPresenter(val view: PedidosInterface.ViewPedidosInterface) :
             } else {
                 launch(io()) {
                     val listLegenda = repository.getLegenda()
-                    launch(main()) { convertPedidos(listPedidos, listLegenda) }
+                    launch(main()) { convertPedidos(listaDePedidosBanco, listLegenda) }
                 }
 
             }
